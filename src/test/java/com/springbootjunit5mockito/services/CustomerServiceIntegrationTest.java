@@ -28,4 +28,13 @@ public class CustomerServiceIntegrationTest {
         Assertions.assertEquals(3, listCustomer.size());
     }
 
+    @Test
+    public  void getCustomer()
+    {
+        Customer actual =_service.getCustomer(1);
+        Assertions.assertEquals(1, actual.getId());
+        Assertions.assertEquals("mesut", actual.getName());
+        Assertions.assertEquals("zincir", actual.getSurname());
+    }
+
 }
