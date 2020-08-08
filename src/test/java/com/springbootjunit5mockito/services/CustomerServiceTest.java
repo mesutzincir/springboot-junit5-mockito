@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 
 //this is a unit test not integration test, so no need spring boot properties or application context.
@@ -31,5 +32,9 @@ class CustomerServiceTest {
 
     @Test
     void getCustomer() {
+        Customer expected =new Customer(1,"mesut","zincir");
+        Mockito.when(_repository.findById(expected.getId())).thenReturn(Optional.of(expected));
+        Customer actual = _service.getCustomer(expected.getId());
+        Assertions.assertEquals(expected, actual);
     }
 }
