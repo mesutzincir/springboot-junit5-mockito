@@ -27,7 +27,7 @@ class CustomerServiceTest {
         Mockito.when(_repository.findAll()).thenReturn(Arrays.asList(new Customer(1,"mesut","zincir"),
                 new Customer(2,"nihat","y")));
         List<Customer> listCustomer= _service.getAll();
-        Assertions.assertEquals(2, listCustomer.size());
+        Assertions.assertEquals(3, listCustomer.size());
     }
 
     @Test
